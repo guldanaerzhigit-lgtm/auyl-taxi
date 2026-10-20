@@ -22,4 +22,4 @@ if(p==="/api/orders/mine"){const r=await env.DB.prepare("SELECT * FROM orders WH
 if(p==="/api/orders/available"){if(user.role!=="driver"||!user.driver_approved)return fail("Жүргізуші мақұлданбаған.",403);const r=await env.DB.prepare("SELECT o.*,u.phone AS passenger_phone FROM orders o JOIN users u ON u.id=o.passenger_id WHERE o.status='pending' ORDER BY o.created_at LIMIT 50").all();return json({orders:r.results})}
 const m=p.match(/^\/api\/orders\/(\d+)\/accept$/);if(m&&req.method==="POST"){if(user.role!=="driver"||!user.driver_approved)return fail("Жүргізуші мақұлданбаған.",403);const r=await env.DB.prepare("UPDATE orders SET driver_id=?,status='accepted' WHERE id=? AND status='pending'").bind(user.id,Number(m[1])).run();if(!r.meta.changes)return fail("Тапсырыс қабылданып қойған немесе табылмады.",409);return json({ok:true})}
 return fail("API жолы табылмады.",404)
-}catch(e){return fail("Сервер қатесі. Баптаулар мен дерекқорды тексеріңіз.",500)}}};
+}catch(e){console.error("auyl-taxi API error:",e&&e.stack?e.stack:String(e));return fail("Сервер қатесі. Баптаулар мен дерекқорды тексеріңіз.",500)}}};
