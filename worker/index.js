@@ -7,7 +7,7 @@ async function hashPass(p,salt){const e=new TextEncoder(),key=await crypto.subtl
 async function passwordHash(p){const salt=enc(crypto.getRandomValues(new Uint8Array(16)));const e=new TextEncoder(),key=await crypto.subtle.importKey("raw",e.encode(p),"PBKDF2",false,["deriveBits"]);return salt+":"+enc(await crypto.subtle.deriveBits({name:"PBKDF2",salt:dec(salt),iterations:100000,hash:"SHA-256"},key,256))}
 async function verifyPass(p,stored){const [salt,want]=stored.split(":");return (await passwordHashWithSalt(p,salt))===want}
 async function passwordHashWithSalt(p,salt){const e=new TextEncoder(),key=await crypto.subtle.importKey("raw",e.encode(p),"PBKDF2",false,["deriveBits"]);return enc(await crypto.subtle.deriveBits({name:"PBKDF2",salt:dec(salt),iterations:100000,hash:"SHA-256"},key,256))}
-const VAPID_PUBLIC_KEY_DEFAULT="BJ5KXRyqsGbYNDqPsF3UOQHsfXnusHz3AIOEfMhSpe433tX8MlR4zxwQrB7JsNK55DLi56leu5tZm3SzkHsPxmc";
+const VAPID_PUBLIC_KEY_DEFAULT="BJT5fFiYqGCMZTFixQpchToNKdRDKcKRDJiDVDzAPGkBnHA2ElTIWt9G_n00gDZKv4tWq7pwLSVzexoepWi1e9o";
 function vapidPublic(env){return env.VAPID_PUBLIC_KEY||VAPID_PUBLIC_KEY_DEFAULT}
 async function hkdf(ikm,salt,info,length){const key=await crypto.subtle.importKey("raw",ikm,"HKDF",false,["deriveBits"]);return new Uint8Array(await crypto.subtle.deriveBits({name:"HKDF",hash:"SHA-256",salt,info},key,length*8))}
 function b64urlBytes(s){return dec(s)}
