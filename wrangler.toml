@@ -1,0 +1,14 @@
+name = "auyl-taxi"
+main = "worker/index.js"
+compatibility_date = "2026-10-20"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "auyl-taxi-db"
+database_id = "PASTE_D1_DATABASE_ID_HERE"
+migrations_dir = "worker/migrations"
