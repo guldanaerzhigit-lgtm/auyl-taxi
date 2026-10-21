@@ -82,7 +82,32 @@ input:focus,select:focus{outline:none;border-color:#58976d;box-shadow:0 0 0 3px 
 #adminStats{margin-top:12px;gap:10px}#adminOrders,#adminRouteList,#userList,#ratingList{margin-top:12px}
 #adminPanel .head,#adminDashboard .head,#adminAnalytics .head,#adminUsers .head,#adminRatings .head,#adminRoutes .head{align-items:center;gap:10px}
 @media(max-width:520px){.stat-tile{padding:12px}.stat-tile small{font-size:11px}#adminStats{grid-template-columns:1fr 1fr}}
-.driver-history{margin-top:24px;padding-top:18px;border-top:1px solid #e3eee8}.driver-history .head{display:flex;align-items:center;justify-content:space-between;gap:10px}.driver-history h3{margin:0}.driver-history #driverStats{margin-top:12px;gap:10px}.driver-history #driverHistory{margin-top:12px}#adminAudit .note{margin-top:12px}@media(max-width:520px){.driver-history .head{align-items:flex-start;flex-wrap:wrap}}</style></head><body><header class="top"><div class="brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><rect width="48" height="48" rx="15" fill="#d7f36a"/><path d="M11 27.5 14.5 17c.6-1.8 2-2.8 4-2.8h11c2 0 3.4 1 4 2.8L37 27.5v7H33v-3H15v3h-4z" fill="#17372a"/><path d="M17 18h14l2.5 7h-19z" fill="#fffefa"/><circle cx="17" cy="28.5" r="2.5" fill="#d7f36a"/><circle cx="31" cy="28.5" r="2.5" fill="#d7f36a"/><path d="M20 10h8" stroke="#17372a" stroke-width="2.5" stroke-linecap="round"/></svg></span><span>Ауыл Такси<small>Жол жақын болсын.</small></span></div><button id="install" class="btn alt hidden">Орнату</button><button id="notifyBtn" class="btn alt hidden">🔔 Хабарландыру</button></header><main class="wrap"><section class="hero"><div><p class="eyebrow">СІЗДІҢ ЖОЛ СЕРІГІҢІЗ</p><h1>Қалаған жеріңізге<br><span>ыңғайлы сапар</span></h1><div class="muted">Ауылдан аудан орталығына дейін — жолға шығудың оңай жолы. Бағаңызды ұсыныңыз, сапарыңызды бастаңыз.</div><div class="hero-actions"><button type="button" class="btn hero-cta" id="heroStart">🚕 Такси шақыру <span>↗</span></button><span class="hero-caption">Қарапайым. Ыңғайлы. Өз ауылыңызда.</span></div></div><div class="hero-art" aria-hidden="true"><div class="sun-disc"></div><div class="road-line"></div><div class="car">🚙</div><div class="art-tag">АУЫЛ ↔ ҚАЛА</div></div></section>
+.driver-history{margin-top:24px;padding-top:18px;border-top:1px solid #e3eee8}.driver-history .head{display:flex;align-items:center;justify-content:space-between;gap:10px}.driver-history h3{margin:0}.driver-history #driverStats{margin-top:12px;gap:10px}.driver-history #driverHistory{margin-top:12px}#adminAudit .note{margin-top:12px}@media(max-width:520px){.driver-history .head{align-items:flex-start;flex-wrap:wrap}}
+/* Accessibility, language, theme and offline feedback */
+.utility-controls{display:flex;gap:7px;align-items:center;margin-left:auto;margin-right:8px}
+.utility-controls .btn{min-height:40px;padding:9px 12px;font-size:12px}
+#themeToggle{min-width:42px;font-size:16px}
+.offline-banner{position:sticky;top:70px;z-index:9;margin:0 auto;padding:11px 16px;text-align:center;background:#fff0d8;color:#704514;font-size:13px;font-weight:750;border-bottom:1px solid #f0d5a7}
+:root.dark{color-scheme:dark;--ink:#e5eee8;background:#101a16}
+:root.dark body{background:#101a16;color:#e5eee8}
+:root.dark .top{background:#0a120e}
+:root.dark .card,:root.dark #app>.head{background:#18251e;border-color:#2d4034;box-shadow:0 5px 0 #0b130e}
+:root.dark .hero{background:#253b2a;color:#f2f7ed}
+:root.dark .hero h1,:root.dark h2,:root.dark #app h3{color:#f2f7ed}
+:root.dark .hero h1 span{color:#d7f36a}
+:root.dark .hero .muted,:root.dark .hero-caption{color:#d3e1d3}
+:root.dark input,:root.dark select{background:#101a15;color:#f0f5ef;border-color:#354a3d}
+:root.dark .note,:root.dark .price,:root.dark .order-chip,:root.dark .tabs{background:#22342a;color:#d4e5d7;border-color:#354c3c}
+:root.dark .order,:root.dark #driverPanel .order{background:#17251d;border-color:#304437}
+:root.dark .order-route,:root.dark .field label,:root.dark .order-contact{color:#d7e8dc}
+:root.dark .order-fare,:root.dark .badge{background:#294832;color:#d7f36a}
+:root.dark .btn.alt,:root.dark .tabs button{background:#263b2d;color:#dceade;border-color:#3b5142}
+:root.dark .tabs button.active{background:#d7f36a;color:#17372a}
+:root.dark .stat-tile{background:#1b2b21;border-color:#34483a}
+:root.dark .stat-tile strong{color:#d7f36a}
+:root.dark .foot{border-color:#2b3a30;color:#a8b8ad}
+@media(max-width:580px){.utility-controls{gap:4px;margin-right:5px}.utility-controls .btn{padding:8px 9px}.top{gap:6px}.offline-banner{top:62px}}
+</style></head><body><header class="top"><div class="brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><rect width="48" height="48" rx="15" fill="#d7f36a"/><path d="M11 27.5 14.5 17c.6-1.8 2-2.8 4-2.8h11c2 0 3.4 1 4 2.8L37 27.5v7H33v-3H15v3h-4z" fill="#17372a"/><path d="M17 18h14l2.5 7h-19z" fill="#fffefa"/><circle cx="17" cy="28.5" r="2.5" fill="#d7f36a"/><circle cx="31" cy="28.5" r="2.5" fill="#d7f36a"/><path d="M20 10h8" stroke="#17372a" stroke-width="2.5" stroke-linecap="round"/></svg></span><span>Ауыл Такси<small>Жол жақын болсын.</small></span></div><div class="utility-controls"><button type="button" id="langToggle" class="btn alt" aria-label="Тілді ауыстыру">ҚАЗ / РУС</button><button type="button" id="themeToggle" class="btn alt" aria-label="Қараңғы режим">🌙</button></div><button id="install" class="btn alt hidden">Орнату</button><button id="notifyBtn" class="btn alt hidden">🔔 Хабарландыру</button></header><main class="wrap"><section class="hero"><div><p class="eyebrow">СІЗДІҢ ЖОЛ СЕРІГІҢІЗ</p><h1>Қалаған жеріңізге<br><span>ыңғайлы сапар</span></h1><div class="muted">Ауылдан аудан орталығына дейін — жолға шығудың оңай жолы. Бағаңызды ұсыныңыз, сапарыңызды бастаңыз.</div><div class="hero-actions"><button type="button" class="btn hero-cta" id="heroStart">🚕 Такси шақыру <span>↗</span></button><span class="hero-caption">Қарапайым. Ыңғайлы. Өз ауылыңызда.</span></div></div><div class="hero-art" aria-hidden="true"><div class="sun-disc"></div><div class="road-line"></div><div class="car">🚙</div><div class="art-tag">АУЫЛ ↔ ҚАЛА</div></div></section>
 <section id="auth" class="card"><div class="head"><div><p class="eyebrow">ЖЕКЕ КАБИНЕТ</p><h2>Қош келдіңіз!</h2></div><div class="tabs"><button class="active" data-mode="login">Кіру</button><button data-mode="register">Тіркелу</button></div></div><form id="authForm"><div id="nameWrap" class="field hidden"><label>Аты-жөніңіз</label><input id="name" placeholder="Аты-жөніңіз"></div><div id="roleWrap" class="field hidden"><label>Аккаунт түрі</label><select id="role"><option value="passenger">Жолаушы</option><option value="driver">Жүргізуші</option></select></div><div class="field"><label>Телефон нөмірі</label><input id="phone" required placeholder="+7 7XX XXX XX XX" autocomplete="tel"></div><div class="field"><label>Құпиясөз (кемінде 8 таңба)</label><input id="password" required minlength="8" type="password" autocomplete="current-password"></div><button id="authSubmit" class="btn full">Кіру</button><p id="authMsg" class="msg"></p></form></section>
 <section id="app" class="hidden"><div class="head" style="margin-top:22px"><h2 id="welcome">Сәлем!</h2><button id="logout" class="btn alt">Шығу</button></div><div id="roleNote" class="note"></div>
 <section id="passenger" class="card"><p class="eyebrow">ЖАҢА САПАР</p><h2>Қайда барамыз?</h2><form id="orderForm"><div class="field"><label>Қай жерден алып кету керек?</label><input id="from" required minlength="2" maxlength="200" placeholder="Мекенжайды жазыңыз"></div><div class="field"><label>Қайда барасыз?</label><input id="to" required minlength="2" maxlength="200" placeholder="Баратын мекенжайды жазыңыз"></div><div class="field"><label>Ұсынатын жол ақысы (ең азы 500 ₸)</label><input id="fare" type="number" required min="500" max="1000000" step="50" value="500" placeholder="500"></div><div class="grid"><div class="field"><label>Жолаушы саны</label><select id="count"><option>1</option><option>2</option><option>3</option><option>4</option></select></div><div class="field"><label>Төлем</label><select id="payment"><option value="cash">Қолма-қол</option><option value="kaspi">Kaspi аударымы</option></select></div></div><div class="note">Ең төменгі жол ақысы — 500 ₸. Жол ақысын өзіңіз ұсыныңыз.</div><button class="btn full">🚕 Такси шақыру</button><p id="orderMsg" class="msg"></p></form></section>
@@ -143,4 +168,75 @@ $("#refreshRoutes")?.addEventListener("click",loadAdminRoutes);
 async function boot(){if(!token){$("#auth").classList.remove("hidden");$("#app").classList.add("hidden");return}try{let d=await api("/auth/me");me=d.user;localStorage.setItem("at_user",JSON.stringify(me));$("#auth").classList.add("hidden");$("#app").classList.remove("hidden");$("#welcome").textContent="Сәлем, "+me.full_name+"!";$("#roleNote").textContent=me.role==="driver"?(me.driver_approved?"Жүргізуші аккаунты белсенді.":"Жүргізуші аккаунтыңыз әкімші мақұлдауын күтуде."):"Жолаушы аккаунты";$("#passenger").classList.toggle("hidden",me.role!=="passenger");$("#driverPanel").classList.toggle("hidden",me.role!=="driver"||!me.driver_approved);$("#adminPanel").classList.toggle("hidden",me.role!=="admin");$("#adminRoutes").classList.toggle("hidden",me.role!=="admin");$("#adminDashboard").classList.toggle("hidden",me.role!=="admin");$("#adminAnalytics").classList.toggle("hidden",me.role!=="admin");$("#adminUsers").classList.toggle("hidden",me.role!=="admin");$("#adminRatings").classList.toggle("hidden",me.role!=="admin");$("#adminAudit").classList.toggle("hidden",me.role!=="admin");if(me.role==="admin"){await loadDrivers();for(const name of ["loadAdminRoutes","loadDashboard","loadAnalytics","loadUsers","loadRatings","loadAudit"]){const fn=window[name];if(typeof fn==="function")await fn()}}if(me.role==="passenger"){routes=(await api("/routes")).routes;renderPlaces();updatePrice();await loadMine()}if(me.role==="driver"&&me.driver_approved){await loadAvailable();await loadDriverSummary()}}catch(e){const message=e&&e.message?e.message:"Жүйеге кіру кезінде қате шықты.";token=null;me=null;localStorage.removeItem("at_token");localStorage.removeItem("at_user");$("#auth").classList.remove("hidden");$("#app").classList.add("hidden");say($("#authMsg"),"Кіру аяқталмады: "+message+" Қайта кіріп көріңіз.");}}boot();
 setInterval(()=>{if(token&&me)loadMine();if(token&&me&&me.role==="driver"&&me.driver_approved){loadAvailable();loadDriverSummary()}},15000);
 window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();installPrompt=e;$("#install").classList.remove("hidden")});$("#install").onclick=async()=>{if(installPrompt){installPrompt.prompt();installPrompt=null;$("#install").classList.add("hidden")}};if("serviceWorker"in navigator)navigator.serviceWorker.register("/sw.js").catch(()=>{});
+
+/* User preferences persist on this device */
+const savedLang=localStorage.getItem("at_lang")||"kk";
+const translations={
+"kk":{},
+"ru":{
+"Жол жақын болсын.":"Пусть дорога будет ближе.",
+"СІЗДІҢ ЖОЛ СЕРІГІҢІЗ":"ВАШ ПОПУТЧИК",
+"Қалаған жеріңізге":"В нужное вам место",
+"ыңғайлы сапар":"с комфортом",
+"Ауылдан аудан орталығына дейін — жолға шығудың оңай жолы. Бағаңызды ұсыныңыз, сапарыңызды бастаңыз.":"Из села до районного центра — закажите поездку просто. Предложите цену и отправляйтесь в путь.",
+"🚕 Такси шақыру":"🚕 Заказать такси",
+"Қарапайым. Ыңғайлы. Өз ауылыңызда.":"Просто. Удобно. В вашем селе.",
+"ЖЕКЕ КАБИНЕТ":"ЛИЧНЫЙ КАБИНЕТ","Қош келдіңіз!":"Добро пожаловать!","Кіру":"Войти","Тіркелу":"Регистрация",
+"Аты-жөніңіз":"Ваше имя","Аккаунт түрі":"Тип аккаунта","Жолаушы":"Пассажир","Жүргізуші":"Водитель",
+"Телефон нөмірі":"Номер телефона","Құпиясөз (кемінде 8 таңба)":"Пароль (не менее 8 символов)",
+"Орнату":"Установить","Шығу":"Выйти","ЖАҢА САПАР":"НОВАЯ ПОЕЗДКА","Қайда барамыз?":"Куда едем?",
+"Қай жерден алып кету керек?":"Откуда вас забрать?","Мекенжайды жазыңыз":"Введите адрес",
+"Қайда барасыз?":"Куда направляетесь?","Баратын мекенжайды жазыңыз":"Введите адрес назначения",
+"Ұсынатын жол ақысы (ең азы 500 ₸)":"Предлагаемая цена (минимум 500 ₸)","Жолаушы саны":"Количество пассажиров",
+"Төлем":"Оплата","Қолма-қол":"Наличными","Kaspi аударымы":"Перевод Kaspi",
+"Ең төменгі жол ақысы — 500 ₸. Жол ақысын өзіңіз ұсыныңыз.":"Минимальная стоимость — 500 ₸. Предложите свою цену.",
+"Менің тапсырыстарым":"Мои заказы","Жаңарту":"Обновить","Әзірге тапсырыс жоқ.":"Пока заказов нет.",
+"ЖҮРГІЗУШІ КАБИНЕТІ":"КАБИНЕТ ВОДИТЕЛЯ","Жаңа сапарлар":"Новые поездки",
+"Тапсырысты таңдап, қабылдаңыз. Жолаушының мекенжайы мен ұсынған бағасын тексеріңіз.":"Выберите заказ. Проверьте адрес пассажира и предложенную цену.",
+"Белсенді":"Активен","Қолжетімді тапсырыстар":"Доступные заказы",
+"Жаңа тапсырыстар автоматты түрде жаңарып тұрады":"Новые заказы обновляются автоматически",
+"Менің көрсеткіштерім":"Моя статистика","Сапарлар тарихы":"История поездок",
+"Жүргізушілерді мақұлдау":"Подтверждение водителей","Әкімші панелі":"Панель администратора",
+"Соңғы тапсырыстар":"Последние заказы","Статистика және бағыттар":"Статистика и маршруты",
+"Соңғы 7 күн":"Последние 7 дней","Айлық статистика":"Статистика за месяц","Танымал бағыттар":"Популярные маршруты",
+"Пайдаланушыларды басқару":"Управление пользователями","Іздеу (аты немесе телефон)":"Поиск (имя или телефон)",
+"Жүргізушілер рейтингі және пікірлер":"Рейтинг водителей и отзывы","Қауіпсіздік журналы":"Журнал безопасности",
+"Әкімшілік әрекеттер мен маңызды жүйелік оқиғалар.":"Действия администратора и важные системные события.",
+"Бағыттар мен бағалар":"Маршруты и цены","Қай жерден?":"Откуда?","Қайда?":"Куда?",
+"Бағасы (₸)":"Цена (₸)","Бағытты сақтау":"Сохранить маршрут",
+"Қазақша • Қарапайым • Ыңғайлы":"Русский • Просто • Удобно",
+"Тапсырыс қабылданды!":"Заказ принят!","Жүргізуші күтілуде":"Ожидается водитель",
+"Қабылданды":"Принят","Жолда":"В пути","Аяқталды":"Завершён","Бас тартылды":"Отменён",
+"✓ Қабылдау":"✓ Принять","Жолға шықты":"Выехал","Сапар аяқталды":"Завершить поездку",
+"💬 Чат":"💬 Чат","Хабарлама жазу...":"Напишите сообщение...","Жіберу":"Отправить",
+"Жүргізушіні бағалаңыз":"Оцените водителя","Бағаңыз:":"Ваша оценка:",
+"Барлық сапар":"Все поездки","Аяқталған":"Завершено","Қазір белсенді":"Активные сейчас","Түскен сома":"Заработано",
+"Сапар тарихы әзірге бос.":"История поездок пока пуста.","Қазір жаңа тапсырыс жоқ. Жаңа тапсырыстар автоматты түрде жаңарып тұрады.":"Новых заказов пока нет. Они будут обновляться автоматически.",
+"Мақұлдау":"Подтвердить","Жүргізуші мақұлданбаған":"Водитель не подтверждён","Бағыт сақталды.":"Маршрут сохранён.",
+"Іздеу…":"Поиск…","Бұғатталған":"Заблокирован","Мақұлданған жүргізуші":"Подтверждённый водитель","Мақұлдауды күтуде":"Ожидает подтверждения",
+"Бұғаттау":"Заблокировать","Ашу":"Разблокировать","Әкімші":"Администратор","Жүргізуші тағайындалмаған":"Водитель не назначен",
+"Әзірге бағыт жоқ.":"Маршрутов пока нет.","Әзірге күндік дерек жоқ.":"Данных за дни пока нет.",
+"Әзірге айлық дерек жоқ.":"Данных за месяцы пока нет.","Әзірге танымал бағыт жоқ.":"Популярных маршрутов пока нет.",
+"Журналда әзірге жазба жоқ.":"В журнале пока нет записей.","Әзірге баға мен пікір жоқ.":"Оценок и отзывов пока нет.",
+"Пайдаланушы табылмады.":"Пользователь не найден.","Жүргізуші мақұлданды.":"Водитель подтверждён.",
+"Push баптау қатесі: ":"Ошибка настройки уведомлений: ","Қазір":"Сейчас"
+}};
+function applyLanguage(){
+ const lang=localStorage.getItem("at_lang")||"kk";document.documentElement.lang=lang;
+ const dict=translations[lang]||{};
+ const walk=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+ const nodes=[];while(walk.nextNode())nodes.push(walk.currentNode);
+ for(const n of nodes){const t=n.nodeValue.trim();if(dict[t])n.nodeValue=n.nodeValue.replace(t,dict[t]);}
+ document.querySelectorAll("input[placeholder],textarea[placeholder]").forEach(el=>{const orig=el.dataset.kkPlaceholder||el.placeholder;if(!el.dataset.kkPlaceholder)el.dataset.kkPlaceholder=orig;if(dict[orig])el.placeholder=dict[orig]});
+ document.querySelectorAll("label").forEach(el=>{const t=el.textContent.trim();if(dict[t])el.textContent=dict[t]});
+ document.querySelectorAll("[data-mode]").forEach(b=>{if(lang==="ru")b.textContent=b.dataset.mode==="login"?"Войти":"Регистрация";else b.textContent=b.dataset.mode==="login"?"Кіру":"Тіркелу"});
+ const langBtn=document.getElementById("langToggle");if(langBtn)langBtn.textContent=lang==="kk"?"ҚАЗ / РУС":"РУС / ҚАЗ";
+}
+document.getElementById("langToggle").addEventListener("click",()=>{localStorage.setItem("at_lang",(localStorage.getItem("at_lang")||"kk")==="kk"?"ru":"kk");location.reload()});
+const applyTheme=()=>{const dark=localStorage.getItem("at_theme")==="dark";document.documentElement.classList.toggle("dark",dark);const b=document.getElementById("themeToggle");if(b){b.textContent=dark?"☀️":"🌙";b.setAttribute("aria-label",dark?"Жарық режим":"Қараңғы режим")}};
+document.getElementById("themeToggle").addEventListener("click",()=>{localStorage.setItem("at_theme",localStorage.getItem("at_theme")==="dark"?"light":"dark");applyTheme()});applyTheme();applyLanguage();
+function offlineNotice(){let b=document.getElementById("offlineBanner");if(!navigator.onLine){if(!b){b=document.createElement("div");b.id="offlineBanner";b.className="offline-banner";b.setAttribute("role","status");b.textContent=(localStorage.getItem("at_lang")==="ru"?"Нет интернета. Данные могут не обновляться. Проверьте соединение.":"Интернет жоқ. Мәліметтер жаңармауы мүмкін. Байланысты тексеріңіз.");document.querySelector(".top").after(b)}}else if(b)b.remove()}
+window.addEventListener("offline",offlineNotice);window.addEventListener("online",()=>{offlineNotice();if(token&&me)loadMine().catch(()=>{})});offlineNotice();
+const originalApi=api;
+api=async function(path,opt={}){if(!navigator.onLine)throw Error(localStorage.getItem("at_lang")==="ru"?"Нет подключения к интернету. Проверьте сеть и повторите попытку.":"Интернет байланысы жоқ. Желіні тексеріп, қайта көріңіз.");try{return await originalApi(path,opt)}catch(e){if(e instanceof TypeError||/Failed to fetch|NetworkError|fetch/i.test(e.message||""))throw Error(localStorage.getItem("at_lang")==="ru"?"Не удалось связаться с сервером. Проверьте интернет и попробуйте ещё раз.":"Сервермен байланыс орнатылмады. Интернетті тексеріп, қайта көріңіз.");throw e}};
 </script></body></html>
